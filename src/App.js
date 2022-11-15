@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import read from './services/read.js'
-import update from './services/update';
+import {read, update} from './services/read.js'
 import Header from './components/header/Header';
 import Left from './components/left/Left';
 import Right from './components/right/Right';
@@ -14,14 +13,14 @@ const App = () => {
   useEffect(() => {
     // read db data & update UI
 
-    const read = () => {
+    const readAsync = () => {
       var url = '/data';
       return  read(url)
            .then(response => {
             setData(response)
            }) 
     }
-    read()
+    readAsync()
 
    
 }, []);
